@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .producer-info {
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+    </style>
+    <title>Producer Details</title>
+</head>
+<body>
+
+<header>
+    <h1>Producer Details</h1>
+</header>
+
+<div class="container">
+    <div class="producer-info">
+        <h2>Producer Name: Gokul T</h2>
+        <p>Email: gokulpriya@gmail.com</p>
+        <p>Location: Erode, Tamilnadu</p>
+        <p>Contact: +91 9262827619</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="openChatbox()">Message the Producer</button>
+        <button onclick="window.location.href='purchase form.html'">Purchase Form</button>
+    </div>
+</div>
+
+<script>
+    function openChatbox() {
+        // Here you can add the logic to open a chatbox or redirect to a chat page
+        alert("Chatbox opened! (Placeholder action)");
+    }
+</script>
+
+</body>
+</html>

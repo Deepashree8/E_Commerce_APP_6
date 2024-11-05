@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin:0;
+        }
+        .login-before-container{
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(221, 7, 7, 0.1);
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}">Home</a>
+    <p>go back to home page</p>
+    <div class="login-before-container">
+        <h2>User Register</h2>
+        <form method="POST" url="{% url 'user_register' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

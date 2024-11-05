@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .purchase-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .purchase-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .purchase-item:last-child {
+            border-bottom: none;
+        }
+
+        .purchase-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .purchase-info label {
+            font-weight: bold;
+        }
+
+        .status {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .sort-options {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .sort-options select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <title>My Purchases</title>
+</head>
+<body>
+
+<header>
+    <h1>My Purchases</h1>
+</header>
+
+<div class="container">
+    <h2>Purchased Items</h2>
+    
+    <div class="search-bar">
+        <input type="text" placeholder="Search by order number or item name" id="search-input">
+        <button onclick="search()">Search</button>
+    </div>
+    
+    <div class="sort-options">
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+            <option value="date">Date</option>
+            <option value="price">Price</option>
+            <option value="status">Status</option>
+        </select>
+        <button onclick="sort()">Sort</button>
+    </div>
+
+    <ul class="purchase-list">
+        <li class="purchase-item">
+            <div class="purchase-info">
+                <label>Order #12345</label>
+                <span class="status">Delivered</span>
+            </div>
+            <div>Item: Dish Washer (Qty: 1), Rs 1000</div>
+            <div>Purchased on: 2024-01-15</div>
+            <button onclick="viewDetails('12345')">View Details</button>
+        </li>
+
+        <li class="purchase-item">
+            <div class="purchase-info">
+                <label>Order #12346</label>
+                <span class="status">Shipped</span>
+            </div>
+            <div>Item: Single Cot (Qty: 1), Rs 3500</div>
+            <div>Purchased on: 2024-01-18</div>
+            <button onclick="viewDetails('12346')">View Details</button>
+        </li>
+
+        <li class="purchase-item">
+            <div class="purchase-info">
+                <label>Order #12347</label>
+                <span class="status">Processing</span>
+            </div>
+            <div>Item: Leather Shoes (Qty: 2), Rs 2000</div>
+            <div>Purchased on: 2024-01-20</div>
+            <button onclick="viewDetails('12347')">View Details</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+function search() {
+    const query = document.getElementById("search-input").value;
+    alert("Searching for: " + query);
+}
+
+function sort() {
+    const sortBy = document.getElementById("sort").value;
+    alert("Sorting by: " + sortBy);
+}
+
+function viewDetails(orderNumber) {
+    // Redirect to order details page (replace with actual URL or logic)
+    window.location.href = 'order_details.html?order=' + orderNumber;
+}
+</script>
+
+</body>
+</html>

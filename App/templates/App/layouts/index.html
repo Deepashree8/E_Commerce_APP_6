@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            position: relative; 
+        }
+    
+        .about-button {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background-color: orange;
+            color: rgb(251, 249, 246); 
+            text-decoration: none; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .product-price {
+            margin-top: 5px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .product-review {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+
+        .fixed-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
+        .ar-button {
+            background-color: #ff5733; /* Different color for AR button */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background-color: #45A049;
+        }
+
+        .ar-button:hover {
+            background-color: #e04926;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px; 
+            align-items: center; 
+        }
+        .carousel {
+            margin-top: 20px; /* Adjust the value as needed */
+        }
+        .top-carousel .carousel-item {
+            height: 400px;
+        }
+
+        .top-carousel .carousel-item img {
+            object-fit: cover; 
+            height: 100%;
+        }
+        
+
+    </style>
+    <title>Shopping Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+</head>
+<body>
+
+<header>
+    <h1>My Shopping Home</h1>
+    <a href="{% url 'about' %}" class="about-button">About Us?</a>
+
+</header>
+
+    <nav>
+        <a href="my purchase.html">My Purchase</a>
+        <a href="Search.Html">Search</a>
+        <a href="my account.html">My Account</a>
+        <a href="{% url 'user_register'  %}">User_register</a>
+        <a href="{% url 'vendor_register'  %}">Postman_register</a>
+        <a href="{% url 'post_product'  %}">Post_Product</a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Collections
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for category in categories %}
+                    <a class="dropdown-item" href="{% url 'category_product' category.id %}">{{ category.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+
+        {% comment %} <a href="{% url 'category_list' %}">Collections</a> {% endcomment %}
+        {% comment %} {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %} {% endcomment %}
+    
+    <div id="carouselExampleCaptions" class="carousel slide top-carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      {% comment %} <div id="trendingProductsCarousel" class="carousel slide bottom-carousel mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for product in trending_products %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="row text-center">
+                        <div class="col">
+                            <img src="{{ product.image.url }}" class="d-block w-100" alt="{{ product.name }}">
+                            <h5>{{ product.name }}</h5>
+                            <p>Price: ${{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No trending products available at the moment.</p>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#trendingProductsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#trendingProductsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div> {% endcomment %}
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    {% comment %} <script>
+        function addToCart(productName, price) {
+            // Retrieve the current cart from local storage, or initialize an empty array if it doesn't exist
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+            // Add the new product to the cart
+            cart.push({ name: productName, price: price });
+        
+            // Store the updated cart in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        
+            // Redirect to the 'add_to_cart.html' page
+            window.location.href = 'add to cart.html';
+        }
+        function redirectToReview() {
+            window.location.href = 'review.html';
+        }
+        function filterItems(filterType) {
+            switch (filterType) {
+                case 'branded':
+                    // logic for branded items or redirect
+                    window.location.href = 'branded_items.html';
+                    break;
+                case 'handmade':
+                    // logic for handmade items or redirect
+                    window.location.href = 'homemade_items.html';
+                    break;
+                case 'cost_high':
+                    // logic for cost high to low or redirect
+                    window.location.href = 'cost_high.html';
+                    break;
+                case 'cost_low':
+                    // logic for cost low to high or redirect
+                    window.location.href = 'cost_low.html';
+                    break;
+                default:
+                    console.error('Invalid filter type');
+            }
+        }
+        function openCustomization(){
+            window.location.href='customizations options.html';
+        }
+        function viewAugmentedReality() {
+            console.log("Launching Augmented Reality for this product");
+            alert("AR view launched!");
+        }
+        
+    </script> {% endcomment %}
+
+</body>
+</html>

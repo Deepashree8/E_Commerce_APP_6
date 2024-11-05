@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .review-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-container h2 {
+            text-align: center;
+        }
+
+        .review-container label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .review-container textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .review-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Post Review</title>
+</head>
+<body>
+
+<header>
+    <h1>Post Your Review</h1>
+</header>
+
+<div class="review-container">
+    <h2>Share Your Thoughts</h2>
+    <form id="reviewForm" method="POST" action={%  url 'post_reviews' product.id  %}>
+        {% csrf_token %}
+        <label for="review">Write Your Review:</label>
+        <textarea id="review" name="content" required></textarea>
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" name="rating" min="1" max="5" required>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+
+{% comment %} <script>
+    function submitReview(event) {
+        event.preventDefault();
+
+        const reviewText = document.getElementById("review").value;
+        const contactPermission = document.getElementById("contactPermission").checked;
+
+        console.log("Review submitted:", reviewText);
+        console.log("Contact permission:", contactPermission);
+
+        window.location.href = "thank you.html"; 
+    }
+</script> {% endcomment %}
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color:orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .product-price {
+            margin-top: 5px;
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
+        .ar-button {
+            background-color: #ff5733; /* Different color for AR button */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background-color: #45A049;
+        }
+
+        .ar-button:hover {
+            background-color: #e04926;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px; 
+            align-items: center; 
+        }
+        .home-return {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background-color: orange;
+            color: rgb(251, 249, 246); 
+            text-decoration: none; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+        }
+    </style>
+    <title>Shopping Home Page</title>
+</head>
+<body>
+
+    <header>
+        <h1>My Shopping Home</h1>
+        <a href="customer.html" class="home-return"><-Back To Home</a>
+    </header>
+    <nav>
+        <a href="my purchase.html">My Purchase</a>
+        <a href="Search.Html">Search</a>
+    </nav>
+    <h3>Handmade Items Are Available Here!</h3>
+    <div class="product-container">
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Leather Wallet.jpg" alt="Handmade Leather Wallet">
+            <div class="product-title">Handmade Leather Wallet</div>
+            <div class="product-price">Rs 1000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Handmade Leather Wallet', 1000)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handcrafted Wooden Serving Tray.jpg" alt="Handcrafted Wooden Serving Tray">
+            <div class="product-title">Handcrafted Wooden Serving Tray</div>
+            <div class="product-price">Rs 1500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Handcrafted Wooden Serving Tray', 1500)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handwoven Basket.jpg" alt="Handwoven Basket">
+            <div class="product-title">Handwoven Basket</div>
+            <div class="product-price">Rs 2000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handwoven Basket', 1000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Ceramic Mug Set.jpg" alt="Handmade Ceramic Mug Set">
+            <div class="product-title">Handmade Ceramic Mug Set</div>
+            <div class="product-price">Rs 1500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handmade Ceramic Mug Set', 1500)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-knitted Baby Blanket.jpg" alt="Hand-knitted Baby Blanket">
+            <div class="product-title">Hand-knitted Baby Blanket</div>
+            <div class="product-price">Rs 700</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-knitted Baby Blanket', 1000)">Add to Cart</button>
+        </div>
+    </div>
+    
+    <div class="product-container">
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-poured Soy Wax Candles.jpg" alt="Hand-poured Soy Wax Candles">
+            <div class="product-title">Hand-poured Soy Wax Candles</div>
+            <div class="product-price">Rs 200</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                 <button onclick="addToCart('Hand-poured Soy Wax Candles', 1500)">Add to Cart</button>
+                 <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+          
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Beaded Bracelet.jpg" alt="Handmade Beaded Bracelet">
+            <div class="product-title">Handmade Beaded Bracelet</div>
+            <div class="product-price">Rs 4000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handmade Beaded Bracelet', 1000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-painted Silk Scarf.jpg" alt="Hand-painted Silk Scarf">
+            <div class="product-title">Hand-painted Silk Scarf</div>
+            <div class="product-price">Rs 5500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Hand-painted Silk Scarf', 1500)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-carved Wooden Spoon Set.jpg" alt="Hand-carved Wooden Spoon Set">
+            <div class="product-title">Hand-carved Wooden Spoon Set</div>
+            <div class="product-price">Rs 2000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-carved Wooden Spoon Set', 2000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-stitched Leather Journal.jpg" alt="Hand-stitched Leather Journal">
+            <div class="product-title">Hand-stitched Leather Journal</div>
+            <div class="product-price">Rs 2500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-stitched Leather Journal', 2500)">Add to Cart</button>
+        </div>
+    </div>
+    
+
+    <h3>FALL IN LOVE WITH HANDMADE PRODUCTS</h3>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Pottery Vase.jpg" alt="Handmade Pottery Vase">
+            <div class="product-title">Handmade Pottery Vase</div>
+            <div class="product-price">Rs 3000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Handmade Pottery Vase', 3000)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-woven Hammock.jpg" alt="Hand-woven Hammock">
+            <div class="product-title">Hand-woven Hammock</div>
+            <div class="product-price">Rs 3500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Hand-woven Hammock', 3500)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-dyed Shibori Pillow Covers.jpg" alt="Hand-dyed Shibori Pillow Covers">
+            <div class="product-title">Hand-dyed Shibori Pillow Covers</div>
+            <div class="product-price">Rs 4000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-dyed Shibori Pillow Covers', 4000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handcrafted Silver Jewelry.jpg" alt="Handcrafted Silver Jewelry">
+            <div class="product-title">Handcrafted Silver Jewelry</div>
+            <div class="product-price">Rs 4500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Handcrafted Silver Jewelry', 4500)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Quilted Throw Blanket.jpg" alt="Handmade Quilted Throw Blanket">
+            <div class="product-title">Handmade Quilted Throw Blanket</div>
+            <div class="product-price">Rs 5000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handmade Quilted Throw Blanket', 5000)">Add to Cart</button>
+        </div>
+    
+     
+    <div class="product-container">
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-blown Glass Votive Holders.jpg" alt="Hand-blown Glass Votive Holders">
+            <div class="product-title">Hand-blown Glass Votive Holders</div>
+            <div class="product-price">Rs 1000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                    <button onclick="addToCart('Hand-blown Glass Votive Holders', 1000)">Add to Cart</button>
+                    <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-sewn Fabric Tote Bag.jpg" alt="Hand-sewn Fabric Tote Bag">
+            <div class="product-title">Hand-sewn Fabric Tote Bag</div>
+            <div class="product-price">Rs 1500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-sewn Fabric Tote Bag', 1500)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-carved Stone Sculpture.jpg" alt="Hand-carved Stone Sculpture">
+            <div class="product-title">Hand-carved Stone Sculpture</div>
+            <div class="product-price">Rs 2000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-carved Stone Sculpture', 2000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-painted Ceramic Planters.jpg" alt="Hand-painted Ceramic Planters">
+            <div class="product-title">Hand-painted Ceramic Planters</div>
+            <div class="product-price">Rs 2500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-painted Ceramic Planters', 2500)">Add to Cart</button>
+        </div>
+        
+        <!-- Additional Product Cards -->
+        
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Macrame Wall Hanging.jpg" alt="Handmade Macrame Wall Hanging">
+            <div class="product-title">Handmade Macrame Wall Hanging</div>
+            <div class="product-price">Rs 3000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Handmade Macrame Wall Hanging', 3000)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    </div>
+    <h3>TRY NEW THINGS NOW</h3>
+    <div class = 'product-container'>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handcrafted Bamboo Cutting Board.jpg" alt="Handcrafted Bamboo Cutting Board">
+            <div class="product-title">Handcrafted Bamboo Cutting Board</div>
+            <div class="product-price">Rs 3500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handcrafted Bamboo Cutting Board', 3500)">Add to Cart</button>
+        </div>
+    
+       
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-thrown Pottery Coffee Mug.jpg" alt="Hand-thrown Pottery Coffee Mug">
+            <div class="product-title">Hand-thrown Pottery Coffee Mug</div>
+            <div class="product-price">Rs 4000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-thrown Pottery Coffee Mug', 4000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-stitched Embroidery Hoop Art.jpg" alt="Hand-stitched Embroidery Hoop Art">
+            <div class="product-title">Hand-stitched Embroidery Hoop Art</div>
+            <div class="product-price">Rs 4500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+                <button onclick="addToCart('Hand-stitched Embroidery Hoop Art', 4500)">Add to Cart</button>
+                <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Paper Greeting Cards.jpg" alt="Handmade Paper Greeting Cards">
+            <div class="product-title">Handmade Paper Greeting Cards</div>
+            <div class="product-price">Rs 5000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handmade Paper Greeting Cards', 5000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-dipped Beeswax Candles.jpg" alt="Hand-dipped Beeswax Candles">
+            <div class="product-title">Hand-dipped Beeswax Candles</div>
+            <div class="product-price">Rs 5500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-dipped Beeswax Candles', 5500)">Add to Cart</button>
+        </div>
+    
+   
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-knotted Wool Area Rug.jpg" alt="Hand-knotted Wool Area Rug">
+            <div class="product-title">Hand-knotted Wool Area Rug</div>
+            <div class="product-price">Rs 6000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <div class="product-actions">
+             <button onclick="addToCart('Hand-knotted Wool Area Rug', 6000)">Add to Cart</button>
+             <button class="ar-button" type="button" onclick="viewAugmentedReality()">View Augmented Reality</button>
+            </div>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handwoven Cotton Throw Blanket.jpg" alt="Handwoven Cotton Throw Blanket">
+            <div class="product-title">Handwoven Cotton Throw Blanket</div>
+            <div class="product-price">Rs 6500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handwoven Cotton Throw Blanket', 6500)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-forged Iron Coat Hooks.jpg" alt="Hand-forged Iron Coat Hooks">
+            <div class="product-title">Hand-forged Iron Coat Hooks</div>
+            <div class="product-price">Rs 7000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-forged Iron Coat Hooks', 7000)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Handmade Crochet Dishcloth Set.jpg" alt="Handmade Crochet Dishcloth Set">
+            <div class="product-title">Handmade Crochet Dishcloth Set</div>
+            <div class="product-price">Rs 7500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Handmade Crochet Dishcloth Set', 7500)">Add to Cart</button>
+        </div>
+    
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\OneDrive\Desktop\APP\handmane items\Hand-painted Wooden Sign.jpg" alt="Hand-painted Wooden Sign">
+            <div class="product-title">Hand-painted Wooden Sign</div>
+            <div class="product-price">Rs 8000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Hand-painted Wooden Sign', 8000)">Add to Cart</button>
+        </div>
+    
+    </div>
+
+    <script>
+        function addToCart(productName, price) {
+            // Retrieve the current cart from local storage, or initialize an empty array if it doesn't exist
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+            // Add the new product to the cart
+            cart.push({ name: productName, price: price });
+        
+            // Store the updated cart in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        
+            // Redirect to the 'add_to_cart.html' page
+            window.location.href = 'add to cart.html';
+        }
+        function redirectToReview() {
+            window.location.href = 'review.html';
+        }
+    </script>
+
+</body>
+</html>

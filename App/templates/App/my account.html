@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container h2 {
+            text-align: center;
+        }
+
+        .profile-info {
+            margin: 10px 0;
+        }
+
+        .profile-info label {
+            font-weight: bold;
+        }
+
+        .profile-info span {
+            margin-left: 10px;
+            font-style: italic;
+        }
+
+        .order-list {
+            margin-top: 20px;
+        }
+
+        .order-list h3 {
+            text-align: center;
+        }
+
+        .order-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .order-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logout-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #f44336; /* Red for the log-out button */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e53935; /* Darker red on hover */
+        }
+        .profile-container {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .profile-photo {
+            width: 15%;
+            height: 5%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <title>My Profile</title>
+</head>
+<body>
+
+<header>
+    <h1>My Profile</h1>
+</header>
+
+<div class="profile-container">
+    <h2>Account Details</h2>
+    <div class="profile-container">
+        <img class="profile-photo" src="C:\Users\Madhavan\Downloads\aishwarya photo.jpg" alt="Profile Photo">
+        <h1>My Profile</h1>
+        <!-- Other account details can go here -->
+    </div>    
+    <div class="profile-info">
+        <label>Name:</label>
+        <span>Madhavan M</span>
+    </div>
+    <div class="profile-info">
+        <label>Email:</label>
+        <span>maddy91845@gmail.com</span>
+    </div>
+    <div class="profile-info">
+        <label>Phone:</label>
+        <span>+91 9876543219</span>
+    </div>
+
+    <div class="order-list">
+        <h3>Order History</h3>
+        <ul>
+            <li>Order #12345 - Rs 1500 - Delivered</li>
+            <li>Order #12346 - Rs 2000 - Shipped</li>
+            <li>Order #12347 - Rs 3500 - Processing</li>
+        </ul>
+    </div>
+
+    <div class="logout-container">
+        <button onclick="signOut()">Sign Out</button>
+    </div>
+</div>
+
+<script>
+function signOut() {
+    // Simulate logging out by redirecting to a log-out page
+    window.location.href = 'login.html';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include the style block from the previous code -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        form {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: white;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+    </style>
+    <title>Purchase Form</title>
+</head>
+<body>
+<header>
+    <h1>Purchse Form</h1>
+</header>
+
+<form id="purchaseForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+
+    <label for="cardNumber">Card Number:</label>
+    <input type="password" id="cardNumber" name="cardNumber" required>
+
+    <button onclick="window.location.href='payment.html'">Proceed to Payment</button>
+</form>
+
+<script>
+    document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+        // Add custom validation or behavior here
+        // Ensure secure data handling for credit card information
+        alert('Form submitted! Ensure to process data securely.');
+    });
+</script>
+
+</body>
+</html>

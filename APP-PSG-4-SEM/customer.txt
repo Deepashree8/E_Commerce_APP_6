@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color:orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .product-price {
+            margin-top: 5px;
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Shopping Home Page</title>
+</head>
+<body>
+
+    <header>
+        <h1>My Shopping Home</h1>
+    </header>
+
+    <nav>
+        <a href="My Purcjase.html">My Purchase</a>
+        <a href="Search.Html">Search</a>
+        <a href="My Account">My Account</a>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product1.jpeg" alt="Dish Washer">
+            <div class="product-title">Dish Washer</div>
+            <div class="product-price">Rs 1000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 1', 1000)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product2.jpeg" alt="Dish Washer">
+            <div class="product-title">Dish Washer</div>
+            <div class="product-price">Rs 1200</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 2', 1200)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product3.jpeg" alt="Single cot">
+            <div class="product-title">Single cot</div>
+            <div class="product-price">Rs 3500</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 3', 3500)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product4.jpeg" alt="Bangles">
+            <div class="product-title">Bangles</div>
+            <div class="product-price">Rs 150</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 4', 150)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product 5.jpeg" alt="Leather shoes">
+            <div class="product-title">Leather shoes</div>
+            <div class="product-price">Rs 2000</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 5', 2000)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product6.jpeg" alt="Home made Umbrella">
+            <div class="product-title">Home mad Umbrella</div>
+            <div class="product-price">Rs 600</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 6', 600)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product7.jpeg" alt="Bird House">
+            <div class="product-title">Bird House</div>
+            <div class="product-price">Rs 750</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 7', 750)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product8.jpeg" alt="Bed Spread">
+            <div class="product-title">Bed Spread</div>
+            <div class="product-price">Rs 250</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 8', 250)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product9.jpeg" alt="Photo Holder">
+            <div class="product-title">Photo Holder</div>
+            <div class="product-price">Rs 125</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 9', 125)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product10.jpeg" alt="Pillow">
+            <div class="product-title">Pillow</div>
+            <div class="product-price">Rs 250</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 10', 250)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product11.jpeg" alt="Basket">
+            <div class="product-title">Basket</div>
+            <div class="product-price">Rs 300</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 11', 300)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product12.jpeg" alt="Album">
+            <div class="product-title">Album</div>
+            <div class="product-price">Rs 450</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 12', 450)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product13.jpeg" alt="Handmade Ring">
+            <div class="product-title">Handmade Ring</div>
+            <div class="product-price">Rs 269</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 13', 269)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product14.webp" alt="Handmade Door">
+            <div class="product-title">Handmade Door</div>
+            <div class="product-price">Rs 650</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 14', 650)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img class="product-image" src="C:\Users\Madhavan\Downloads\product15.jpeg" alt="Earings">
+            <div class="product-title">Earings</div>
+            <div class="product-price">Rs 80</div>
+            <div class="product-review"><button onclick="redirectToReview()">Review</button></div>
+            <button onclick="addToCart('Product 15', 80)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <script>
+        function addToCart(productName, price) {
+            // Retrieve the current cart from local storage, or initialize an empty array if it doesn't exist
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+            // Add the new product to the cart
+            cart.push({ name: productName, price: price });
+        
+            // Store the updated cart in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        
+            // Redirect to the 'add_to_cart.html' page
+            window.location.href = 'add to cart.html';
+        }
+        function redirectToReview() {
+            window.location.href = 'review.html';
+        }
+        
+    </script>
+
+</body>
+</html>

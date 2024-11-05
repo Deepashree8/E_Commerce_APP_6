@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .cart-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: white;
+        }
+
+        .cart-item-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            color: green;
+            font-weight: bold;
+        }
+
+        .cart-producer {
+            font-size: 14px;
+            color: #555;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+
+        .cart-actions {
+            margin-top: 10px;
+        }
+    </style>
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+<header>
+    <h1>Your Shopping Cart</h1>
+</header>
+
+<div class="cart-container" id="cartContainer">
+    <!-- Cart items will be inserted here -->
+</div>
+
+<script>
+    function displayCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartContainer = document.getElementById('cartContainer');
+
+        cartContainer.innerHTML = ''; // Clear the cart before displaying
+        if (cart.length === 0) {
+            cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+
+                cartItem.innerHTML = `
+                    <div class="cart-item-title">${item.name}</div>
+                    <div class="cart-item-price">Rs ${item.price}</div>
+                    <div class="cart-producer">Produced by: ${item.producer}</div>
+                    <div class="cart-actions">
+                        <button type="button" onclick="removeFromCart(${index})">Remove from Cart</button>
+                        <button type="button" onclick="viewProducerDetails('${item.producer}')">Producer Details</button>
+                    </div>
+                `;
+
+                total += item.price;
+
+                cartContainer.appendChild(cartItem);
+            });
+
+            const totalElement = document.createElement('div');
+            totalElement.className = 'total';
+            totalElement.innerHTML = `Total: Rs ${total}`;
+
+            cartContainer.appendChild(totalElement);
+        }
+    }
+
+    function removeFromCart(index) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1); // Remove item by index
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart
+        displayCart(); // Update the cart display
+    }
+
+    function viewProducerDetails(producer) {
+        // Redirect to producer-details webpage, passing the producer's name in the URL
+        window.location.href = `producer-details.html?producer=${producer}`;
+    }
+
+    function completePurchase() {
+        localStorage.removeItem('cart'); // Clear the cart
+        alert('Thank you for your purchase!');
+        window.location.href='customer.html';
+    }
+    
+    // Initial display of the cart when the page loads
+    displayCart();
+</script>
+
+<div class="cart-container">
+    <button type="button" onclick="completePurchase()">Complete Purchase</button>
+</div>
+
+</body>
+</html>

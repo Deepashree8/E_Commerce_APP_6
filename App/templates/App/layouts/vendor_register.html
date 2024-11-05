@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(221, 7, 7, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+              background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Loginvendor</title>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Postman Register</h2>
+        <form method="POST"  url="{% url 'vendor_register' %}">
+           {% csrf_token %}
+           <input type="text" name="username" placeholder="Username" required>
+           <input type="password" name="password" placeholder="Password" required>
+           <input type="text" name="store_name" placeholder="store_name" required>
+           <input type="text" name="phone_number" placeholder="phone_number" required>
+           <button type="submit">Register</button>
+        </form>
+    </div>
+
+    {% comment %} <script>
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('error-message');
+            
+            if (username === '22n229' && password === '22n229') 
+            {
+                window.location.href="postman.html";
+            } 
+            else 
+            {
+                errorMessage.innerText = 'Invalid username or password. Please try again.';
+                errorMessage.style.color = 'red';
+            }
+        }
+    </script> {% endcomment %}
+</body>
+</html>

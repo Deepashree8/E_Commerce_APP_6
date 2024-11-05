@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .payment-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-row input {
+            width: 48%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+    </style>
+    <title>Payment Page</title>
+</head>
+<body>
+
+<header>
+    <h1>Payment Information</h1>
+</header>
+
+<div class="payment-container">
+    <form id="paymentForm">
+        <label for="cardHolderName">Cardholder Name:</label>
+        <input type="text" id="cardHolderName" name="cardHolderName" required>
+
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+
+        <div class="form-row">
+            <div>
+                <label for="expirationDate">Expiration Date:</label>
+                <input type="month" id="expirationDate" name="expirationDate" required>
+            </div>
+            <div>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="submitPayment()">Submit Payment</button>
+    </form>
+</div>
+
+<script>
+    function submitPayment() {
+        const paymentForm = document.getElementById('paymentForm');
+        
+        // Insert logic to process the payment here
+        console.log("Payment submitted");
+
+        alert("Payment Successful!");
+    }
+</script>
+
+</body>
+</html>
